@@ -19,10 +19,19 @@ The OpenClaw Google Workspace skill allows you to access your Gmail and Google C
 
 ## How It Works
 
-1. You authenticate directly with Google using OAuth
+1. You authenticate directly with Google using OAuth 2.0 with PKCE
 2. Google issues a token that is stored on your local machine only
 3. When you use the skill, your machine communicates directly with Google
 4. OpenClaw acts only as the "app identity" for the OAuth flow
+
+## Security: OAuth 2.0 with PKCE
+
+We use **PKCE (Proof Key for Code Exchange)** for all OAuth flows. This is the modern security standard for desktop/public clients:
+
+- A cryptographic `code_verifier` is generated locally on your machine
+- This verifier never leaves your machine and is never shared
+- Even if someone intercepts the authorization code, they cannot exchange it for tokens without your local verifier
+- The `client_secret` becomes non-critical for security - PKCE provides the actual protection
 
 ## Data Access
 

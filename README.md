@@ -8,13 +8,21 @@ This repository hosts the OAuth app identity that allows OpenClaw users to conne
 
 ## How It Works
 
-1. You install the `google-workspace` skill via ClawHub
-2. You run the setup script which opens Google's OAuth consent
+1. You install the `google-workspace` skill
+2. You run `python skill.py auth` which opens Google's OAuth consent
 3. You authorize access to your Gmail/Calendar
 4. Tokens are stored **locally on your machine only**
 5. All API calls go **directly from your machine to Google**
 
 **No data passes through any intermediary servers.**
+
+## Credentials
+
+Download `credentials.json` from this repo and place it in your skill directory:
+
+```bash
+curl -o credentials.json https://raw.githubusercontent.com/niemesrw/openclaw-oauth/main/credentials.json
+```
 
 ## Privacy & Terms
 
